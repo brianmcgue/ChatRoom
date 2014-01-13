@@ -19,7 +19,7 @@
     var text = data.text;
 
     $newMessage.text(text);
-    $('#messages').append($newMessage);
+    $('#messages').prepend($newMessage);
   }
 })(this);
 
