@@ -8,11 +8,11 @@
 
   ChatUI.prototype.getMessage = function () {
     return $('#message_text').val();
-  }
+  };
 
   ChatUI.prototype.sendMessage = function (text) {
     this.chat.sendMessage(text);
-  }
+  };
 
   ChatUI.prototype.displayMessage = function (data) {
     var $newMessage = $('<div>');
@@ -21,7 +21,7 @@
 
     $newMessage.text(user + ": " + text);
     $('#messages').prepend($newMessage);
-  }
+  };
 
   ChatUI.prototype.displaySystemMessage = function (data) {
     var $message = $('<div>');
@@ -29,7 +29,17 @@
     $message.text(data.text);
 
     $('#messages').prepend($message);
-  }
+    this.showCurrentUsers(data.users);
+  };
+
+  ChatUI.prototype.showCurrentUsers = function (users) {
+    users.forEach(function (user) {
+      var $user = $('<li>');
+      $user.text(user);
+
+      $('#users').append($user);
+    });
+  };
 })(this);
 
 $(function () {

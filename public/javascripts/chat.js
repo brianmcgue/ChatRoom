@@ -12,7 +12,8 @@
 
     this.socket.on('nicknameChangeResult', function (data) {
       that.ui.displaySystemMessage({
-        text: data.message
+        text: data.message,
+        users: data.users
       });
     });
 
