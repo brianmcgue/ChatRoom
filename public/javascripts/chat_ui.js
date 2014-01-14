@@ -17,9 +17,18 @@
   ChatUI.prototype.displayMessage = function (data) {
     var $newMessage = $('<div>');
     var text = data.text;
+    var user = data.user;
 
-    $newMessage.text(text);
+    $newMessage.text(user + ": " + text);
     $('#messages').prepend($newMessage);
+  }
+
+  ChatUI.prototype.displaySystemMessage = function (data) {
+    var $message = $('<div>');
+    $message.addClass('system');
+    $message.text(data.text);
+
+    $('#messages').prepend($message);
   }
 })(this);
 
